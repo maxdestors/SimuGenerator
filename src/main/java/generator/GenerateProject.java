@@ -14,14 +14,13 @@ public abstract class GenerateProject {
 	
 	protected String pathProjectToBuild; // chemin ou l'on va mettre le nouveau projet
 	
-	protected List<String> config; // String contenant les configurations de création du projet
+	protected List<String> config; // String contenant les configurations de crï¿½ation du projet
 	
 	
 	public GenerateProject(String pathProject, String pathProjectToBuild, List<String> configuration) {
 		this.pathProject = pathProject;
 		this.pathProjectToBuild = pathProjectToBuild;
 		this.config = configuration;
-
 	}
 	
 	public abstract void generate();

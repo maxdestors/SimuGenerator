@@ -15,12 +15,12 @@ public class Main {
 
 	public static void main(String args[]) {
 	    Logger.getLogger("main").setLevel(Level.ALL);
-		String pathProject = "D:\\Documents\\GitHub\\TP_GL";
+		String pathProject = "C:\\Users\\Romain\\Documents\\M1\\GL\\TP_GL";
 		// Romain // C:\\Documents\\M1\\GL\\TP_GL
 		// Max // D:\\Documents\\GitHub\\TP_GL
 		// Pierre // 
-		String pathProjectToBuild = "D:\\Documents\\GitHub\\TP_GL_new";
-		// Romain // C:\\Documents\\M1\\GL\\ProjectGenerator
+		String pathProjectToBuild = "C:\\Users\\Romain\\Documents\\GitHub\\TP_GL_new";
+		// Romain // C:\\Documents\\GitHub\\TP_GL_new
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
 		// Pierre // 
 		

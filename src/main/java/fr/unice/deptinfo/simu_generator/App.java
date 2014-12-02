@@ -30,7 +30,6 @@ public class App
 	    	
 	    	fi.eval(configName+" = configuration "+fmName);
 	    	
-	    	
 	        Scanner scan = new Scanner(System.in);
 	        String s = "";
 	        String selectCmd = "select ";
@@ -56,6 +55,5 @@ public class App
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
     }
 }
