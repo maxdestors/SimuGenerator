@@ -1,4 +1,4 @@
-package fr.unice.deptinfo.maven_compiler;
+package utils;
 
 public interface Constants 
 {

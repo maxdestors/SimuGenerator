@@ -1,4 +1,4 @@
-package fr.unice.deptinfo.maven_compiler;
+package utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
