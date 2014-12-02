@@ -8,13 +8,13 @@ import java.util.logging.Logger;
 
 public abstract class GenerateProject {
 	
-	 private static Logger logger = Logger.getLogger("generator.GeneratorProject");
+	private static Logger logger = Logger.getLogger("generator.GeneratorProject");
 	
 	protected String pathProject; // Projet 'temoin'
 	
 	protected String pathProjectToBuild; // chemin ou l'on va mettre le nouveau projet
 	
-	protected List<String> config; // String contenant les configurations de cr�ation du projet
+	protected List<String> config; // String contenant les configurations de création du projet
 	
 	
 	public GenerateProject(String pathProject, String pathProjectToBuild, List<String> configuration) {
