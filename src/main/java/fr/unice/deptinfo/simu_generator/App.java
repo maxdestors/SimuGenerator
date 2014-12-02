@@ -16,8 +16,17 @@ public class App
 {
     public static void main( String[] args )
     {
-    	String fmName = "toto";
-    	String FM = fmName+" = FM(A: E F; E: (B|C|D); F: (X|Y)+;)";
+    	String fmName = "fmTechno";
+    	String FM = fmName+" = FM(SimuTechno: [Creature] [Visu] Moteur; "
+    			+ "Creature: Movement Environnement Couleur Nombre; "
+    			+ "Movement: (Random|Flock|Bouncing)+; "
+    			+ "Couleur: (Cube|Groupe|Unique); "
+    			+ "Environnement: (Toric|Circular|Closed); "
+    			+ "Nombre: (NAleatoire|Fixe); "
+    			+ "NAleatoire: (Dizaine|Centaine|Milliers); "
+    			+ "Moteur: VitesseSimu Action; "
+    			+ "Action: Sequentiel; "
+    			+ "VitesseSimu: (Lent|Rapide|Normal);)";
     	String configName = "config1";
     	
     	FamiliarInterpreter fi = FamiliarInterpreter.getInstance();
