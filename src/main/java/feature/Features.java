@@ -1,5 +1,6 @@
 package feature;
 
+import java.util.Collection;
 import java.util.Scanner;
 
 import fr.unice.deptinfo.familiar_interpreter.FMEngineException;
@@ -73,5 +74,31 @@ public class Features {
 			e.printStackTrace();
 		}
     }
+	
+	public Collection<String> getConfig() {
+		try {
+			if(fi.getConfigurationVariable(configName).isComplete()){
+				return fi.getSelectedFeature(configName);
+			}
+		} catch (VariableNotExistingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (VariableAmbigousConflictException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (FMEngineException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+	}
+	
+	
+	
+	
+	
 }
 	

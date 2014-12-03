@@ -25,12 +25,12 @@ public class GenerateProjectSimulator extends GenerateProject {
 		
 		
 		logger.info("Copie des fichiers Optionel :");
-		//appel des config pour ajouter les parametres demandés
+		//appel des config pour ajouter les parametres demandï¿½s
 		for (String node : config) {
 			logger.severe("Appel de la fonction : "+node);
 			Method method;
 			try {
-				method = this.getClass().getMethod(node);
+				method = this.getClass().getMethod(node);// .toLowerCase() ??
 				method.invoke(this);
 			} catch (NoSuchMethodException e) {
 				// TODO Auto-generated catch block
@@ -53,8 +53,8 @@ public class GenerateProjectSimulator extends GenerateProject {
 
 	}
 	
-	public void apercu() {
-		logger.info("apercu ");
+	public void visu() {
+		logger.info("visu ");
 		
 		copyFolder("src"+System.getProperty("file.separator")+"visual", false);
 		copyFolder("src"+System.getProperty("file.separator")+"creatures"+System.getProperty("file.separator")+"visual", false);
@@ -70,15 +70,86 @@ public class GenerateProjectSimulator extends GenerateProject {
 		}*/
 	}
 	
-	public void creature() {
-		logger.info("creature ");
-
+	public void Normal() {
+		logger.info("");
+	}
+	public void Rapide() {
+		logger.info("");
+	}
+	public void Lent() {
+		logger.info("");
+	}
+	public void Sequentiel() {
+		logger.info("");
+	}
+	public void Action() {
+		logger.info("");
+	}
+	public void VitesseSimu() {
+		logger.info("");
+	}
+	public void Moteur() {
+		logger.info("");
+	}
+	public void SimuTechno() {
+		logger.info("");
+	}
+	public void Nombre() {
+		logger.info("");
+	}
+	public void Toric() {
+		logger.info("");
+	}
+	public void Creature() {
+		logger.info("");
+	}
+	public void Groupe() {
+		logger.info("");
+	}
+	public void Milliers() {
+		logger.info("");
+	}
+	public void Random() {
+		logger.info("");
+	}
+	public void Environnement() {
+		logger.info("");
+	}
+	public void NAleatoire() {
+		logger.info("");
+	}
+	public void Bouncing() {
+		logger.info("");
+	}
+	public void Movement() {
+		logger.info("");
+	}
+	public void Dizaine() {
+		logger.info("");
+	}
+	public void Centaine() {
+		logger.info("");
+	}
+	public void Circular() {
+		logger.info("");
+	}
+	public void Couleur() {
+		logger.info("");
+	}
+	public void Fixe() {
+		logger.info("");
+	}
+	public void Cube() {
+		logger.info("");
+	}
+	public void Closed() {
+		logger.info("");
+	}
+	public void Unique() {
+		logger.info("");
+	}
+	public void Flock() {
+		logger.info("");
 	}
 	
-	public void rapide() {
-		logger.info("rapide ");
-
-	}
-	
-
 }

@@ -1,5 +1,6 @@
 package main;
 
+import feature.Features;
 import generator.simulator.GenerateProjectSimulator;
 
 import java.io.File;
@@ -15,11 +16,11 @@ public class Main {
 
 	public static void main(String args[]) {
 	    Logger.getLogger("main").setLevel(Level.ALL);
-		String pathProject = "C:\\Users\\Romain\\Documents\\M1\\GL\\TP_GL";
+		String pathProject = "D:\\Documents\\GitHub\\TP_GL";
 		// Romain // C:\\Documents\\M1\\GL\\TP_GL
 		// Max // D:\\Documents\\GitHub\\TP_GL
 		// Pierre // 
-		String pathProjectToBuild = "C:\\Users\\Romain\\Documents\\GitHub\\TP_GL_new";
+		String pathProjectToBuild = "D:\\Documents\\GitHub\\TP_GL_new";
 		// Romain // C:\\Documents\\GitHub\\TP_GL_new
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
 		// Pierre // 
@@ -31,9 +32,22 @@ public class Main {
 		//*/
 		
 	    List<String> config = new ArrayList<String>();
-	    config.add("apercu");
-	    config.add("creature");
-	    config.add("rapide");
+		/*
+		 * Lent, Sequentiel, Action, VitesseSimu, Moteur, SimuTechno, Rapide, Normal
+		 */
+	    config.add("SimuTechno");
+	    config.add("Moteur");
+	    config.add("Action");
+	    config.add("VitesseSimu");
+	    config.add("Sequentiel");
+	    config.add("Rapide");
+	    config.add("Normal");
+	    config.add("Lent");
+	    /*/
+    	Features fs = new Features();
+    	fs.askConfig();
+    	config = new ArrayList<String>(fs.getConfig());
+    	//*/
 	    
 	    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
 		gps.generate();
