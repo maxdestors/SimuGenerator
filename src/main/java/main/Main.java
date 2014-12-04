@@ -21,6 +21,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import utils.FenetreChoix;
+
 
 public class Main {
 	
@@ -63,8 +65,8 @@ public class Main {
 	    
 	   // GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
 		//gps.generate();
-	    String choix = utils.FenetreChoix.choixConf();
-	    System.out.println(choix);
+	    FenetreChoix.getInstance().choixConf();
+	    String choix = FenetreChoix.getInstance().getChoix();
 	}
 	
 	

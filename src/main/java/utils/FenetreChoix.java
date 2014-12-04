@@ -14,12 +14,40 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.eclipse.jface.viewers.ComboBoxCellEditor;
+
+import com.google.inject.Singleton;
+
 import fr.unice.deptinfo.maven_compiler.FileTool;
-public class FenetreChoix implements ActionListener {
+public final class FenetreChoix implements ActionListener {
 
 	private static String choix;
+	private static volatile FenetreChoix instance = null;
+	private JComboBox combo = new JComboBox();
 	
-	public static String choixConf(){
+	
+	public String getChoix(){
+		return choix;
+	}
+	
+	
+	private FenetreChoix(){
+		super();
+	}
+	
+	public final static FenetreChoix getInstance() {
+		if(FenetreChoix.instance == null){
+			synchronized (Singleton.class) {
+				if(FenetreChoix.instance == null){
+					FenetreChoix.instance = new FenetreChoix();
+				}
+				
+			}
+		}
+		return FenetreChoix.instance;
+	}
+	
+	public void choixConf(){
 		//String choix;
 		File f = null;
 		ArrayList<String> configs = new ArrayList<String>();
@@ -30,23 +58,13 @@ public class FenetreChoix implements ActionListener {
 		JFrame fenetre = new JFrame();
 		JPanel container = new JPanel();
 		
-		final JComboBox combo = new JComboBox();
+		//JComboBox combo = new JComboBox();
 		JLabel label = new JLabel("Configuration");
 		JButton buttonValider = new JButton("Valider");
 		JButton buttonEditer = new JButton("Editer");
 		
-		buttonEditer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("Editer");
-			}
-		});
-		
-		buttonValider.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				choix = combo.getActionCommand().toString();		
-			}
-		});
+		buttonEditer.addActionListener(this);
+		buttonValider.addActionListener(this);
 		
 
 		fenetre.add(container);
@@ -81,14 +99,15 @@ public class FenetreChoix implements ActionListener {
 		for(String p:configs){
 			combo.addItem(p);
 		}
-
-
-		return choix;
-
-
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		// do something
+		if(e.getActionCommand().equals("Valider")) {
+			this.choix = combo.getSelectedItem().toString();
+		}
+		else if(e.getActionCommand().equals("Editer")) {
+			System.out.println(choix);
+		}
 	}
 }
