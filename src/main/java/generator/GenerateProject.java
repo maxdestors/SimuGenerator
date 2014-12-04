@@ -3,6 +3,7 @@ package generator;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -16,11 +17,18 @@ public abstract class GenerateProject {
 	
 	protected List<String> config; // String contenant les configurations de création du projet
 	
+	protected List<String> dirToCpy; // on ajoute les fichiers besoins
+	
+	protected List<String> fileToCpy; // on ajoute les dossier besoins
+
+	
 	
 	public GenerateProject(String pathProject, String pathProjectToBuild, List<String> configuration) {
 		this.pathProject = pathProject;
 		this.pathProjectToBuild = pathProjectToBuild;
 		this.config = configuration;
+		this.dirToCpy = new ArrayList<String>();
+		this.fileToCpy = new ArrayList<String>();
 	}
 	
 	public abstract void generate();

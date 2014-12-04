@@ -263,7 +263,8 @@ public class FileTool
         
         //Don't copy if it's a directory
         if (src.isDirectory()) {
-            dst.mkdir();
+        	
+        	dst.mkdirs(); // S
             return;
         }
         

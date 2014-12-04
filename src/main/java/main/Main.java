@@ -25,16 +25,14 @@ public class Main {
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
 		// Pierre // 
 		
-		//* ATTENTION A BIEN VERIFIER VOTRE CHEMIN AVANT DE DECOMMENTER !!!
+		/* ATTENTION A BIEN VERIFIER VOTRE CHEMIN AVANT DE DECOMMENTER !!!
 		// supprime tout les fichier dans le nouveau projet (pas b'soin de l'faire a la main)
 		emptyDirectory(new File(pathProjectToBuild));
 		logger.info("Erase : "+pathProjectToBuild+"*");
 		//*/
 		
 	    List<String> config = new ArrayList<String>();
-		/*
-		 * Lent, Sequentiel, Action, VitesseSimu, Moteur, SimuTechno, Rapide, Normal
-		 */
+		//* Lent, Sequentiel, Action, VitesseSimu, Moteur, SimuTechno, Rapide, Normal
 	    config.add("SimuTechno");
 	    config.add("Moteur");
 	    config.add("Action");
@@ -43,6 +41,18 @@ public class Main {
 	    config.add("Rapide");
 	    config.add("Normal");
 	    config.add("Lent");
+	    config.add("Visu");
+	    config.add("Creature");
+	    config.add("Movement");
+	    config.add("Environnement");
+	    config.add("Couleur");
+	    config.add("Nombre");
+	    config.add("Random");
+	    config.add("Flock");
+	    config.add("Bouncing");
+	    config.add("Toric");
+	    config.add("Circular");
+	    config.add("Closed");
 	    /*/
     	Features fs = new Features();
     	fs.askConfig();
