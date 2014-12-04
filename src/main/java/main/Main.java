@@ -3,11 +3,25 @@ package main;
 import feature.Features;
 import generator.simulator.GenerateProjectSimulator;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.io.File;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import utils.FenetreChoix;
 
 
 public class Main {
@@ -15,12 +29,12 @@ public class Main {
 	 private static Logger logger = Logger.getLogger("main.Main");
 
 	public static void main(String args[]) {
-	    Logger.getLogger("main").setLevel(Level.ALL);
-		String pathProject = "D:\\Documents\\GitHub\\TP_GL";
+		Logger.getLogger("main").setLevel(Level.ALL);
+		//String pathProject = "D:\\Documents\\GitHub\\TP_GL";
 		// Romain // C:\\Documents\\M1\\GL\\TP_GL
 		// Max // D:\\Documents\\GitHub\\TP_GL
 		// Pierre // 
-		String pathProjectToBuild = "D:\\Documents\\GitHub\\TP_GL_new";
+		//String pathProjectToBuild = "D:\\Documents\\GitHub\\TP_GL_new";
 		// Romain // C:\\Documents\\GitHub\\TP_GL_new
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
 		// Pierre // 
@@ -49,9 +63,10 @@ public class Main {
     	config = new ArrayList<String>(fs.getConfig());
     	//*/
 	    
-	    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
-		gps.generate();
-
+	   // GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
+		//gps.generate();
+	    FenetreChoix.getInstance().choixConf();
+	    String choix = FenetreChoix.getInstance().getChoix();
 	}
 	
 	
