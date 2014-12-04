@@ -2,10 +2,14 @@ package generator.simulator;
 
 import generator.GenerateProject;
 
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.logging.Logger;
+
+import utils.FileTool;
 
 public class GenerateProjectSimulator extends GenerateProject {
 	
@@ -20,8 +24,18 @@ public class GenerateProjectSimulator extends GenerateProject {
 		
 		logger.info("Copie des fichiers obligatoires :");
 		
-		copyFolder("src"+System.getProperty("file.separator")+"simulator", true);
-		copyFolder("src"+System.getProperty("file.separator")+"commons", true);
+		File sourceFile = new File(pathProject+System.getProperty("file.separator")+"src"+System.getProperty("file.separator")+"simulator");
+		File sourcePath = new File(pathProject+System.getProperty("file.separator")+"src"+System.getProperty("file.separator")+"simulator");
+		File targetPath = new File(pathProjectToBuild+System.getProperty("file.separator")+"src"+System.getProperty("file.separator")+"simulator");
+		
+		try {
+			FileTool.copyFilesRecursively(sourceFile, sourcePath, targetPath);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//copyFolder("src"+System.getProperty("file.separator")+"simulator", true);
+		//copyFolder("src"+System.getProperty("file.separator")+"commons", true);
 		
 		
 		logger.info("Copie des fichiers Optionel :");

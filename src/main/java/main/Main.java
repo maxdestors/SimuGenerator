@@ -25,7 +25,7 @@ public class Main {
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
 		// Pierre // 
 		
-		/* ATTENTION A BIEN VERIFIER VOTRE CHEMIN AVANT DE DECOMMENTER !!!
+		//* ATTENTION A BIEN VERIFIER VOTRE CHEMIN AVANT DE DECOMMENTER !!!
 		// supprime tout les fichier dans le nouveau projet (pas b'soin de l'faire a la main)
 		emptyDirectory(new File(pathProjectToBuild));
 		logger.info("Erase : "+pathProjectToBuild+"*");
