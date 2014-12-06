@@ -115,7 +115,13 @@ public class GenerateProjectSimulator extends GenerateProject {
 			
 	}
 	public void SimuTechno() {
-		logger.info("");
+		logger.info("SimuTechno - main");
+		/*
+		 * main/Launcher.java
+		 */
+		
+		fileToCpy.add("src"+System.getProperty("file.separator")+"main"+System.getProperty("file.separator")+"Launcher.java");
+		
 	}
 	public void Nombre() {
 		logger.info("");
