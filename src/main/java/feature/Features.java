@@ -1,5 +1,6 @@
 package feature;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 
@@ -10,31 +11,17 @@ import fr.unice.polytech.modalis.familiar.parser.VariableAmbigousConflictExcepti
 import fr.unice.polytech.modalis.familiar.variable.FeatureModelVariable;
 
 public class Features {
-	
-	
 	private String fmName;
-	
 	private String FM;
-	
 	private String configName;
-	
 	private FamiliarInterpreter fi;
 	
 	
-	public Features() 
+	public Features(String name, String config) 
 	{
-		this.configName = "config1";
-		this.fmName = "fmTechno";
-		this.FM = this.fmName+" = FM(SimuTechno: [Creature] [Visu] Moteur; "
-								+ "Creature: Movement Environnement Couleur Nombre; "
-								+ "Movement: (Random|Flock|Bouncing)+; "
-								+ "Couleur: (Cube|Groupe|Unique); "
-								+ "Environnement: (Toric|Circular|Closed); "
-								+ "Nombre: (NAleatoire|Fixe); "
-								+ "NAleatoire: (Dizaine|Centaine|Milliers); "
-								+ "Moteur: VitesseSimu Action; "
-								+ "Action: Sequentiel; "
-								+ "VitesseSimu: (Lent|Rapide|Normal);)";
+		this.configName = name;
+		this.fmName = "fmTechno = ";
+		this.FM = this.fmName+ config;
 		this.fi = FamiliarInterpreter.getInstance();
 	}
 	

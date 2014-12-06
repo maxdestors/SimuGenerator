@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -16,18 +18,23 @@ import javax.swing.JPanel;
 
 import org.eclipse.jface.viewers.ComboBoxCellEditor;
 
+import fr.unice.deptinfo.simu_generator.App;
+
 import com.google.inject.Singleton;
 
 import fr.unice.deptinfo.maven_compiler.FileTool;
+import fr.unice.deptinfo.simu_generator.App;
 public final class FenetreChoix implements ActionListener {
 
-	private static String choix;
+	private String choix;
 	private static volatile FenetreChoix instance = null;
+	private JFrame fenetre = new JFrame();
+	private JPanel container = new JPanel();
 	private JComboBox combo = new JComboBox();
-	
+	private Map<String,String> configsPresentes = new HashMap<String,String>();
 	
 	public String getChoix(){
-		return choix;
+		return this.configsPresentes.get(choix);
 	}
 	
 	
@@ -50,15 +57,11 @@ public final class FenetreChoix implements ActionListener {
 	public void choixConf(){
 		//String choix;
 		File f = null;
-		ArrayList<String> configs = new ArrayList<String>();
+		File[] configs;
 		f = new File("./config");
-		configs = (ArrayList<String>) FileTool.listFiles(f, "");
-
-
-		JFrame fenetre = new JFrame();
-		JPanel container = new JPanel();
-		
-		//JComboBox combo = new JComboBox();
+		configs = f.listFiles();
+	
+	
 		JLabel label = new JLabel("Configuration");
 		JButton buttonValider = new JButton("Valider");
 		JButton buttonEditer = new JButton("Editer");
@@ -96,8 +99,9 @@ public final class FenetreChoix implements ActionListener {
 		fenetre.setVisible(true);    
 
 		//Ajout des propositions dans la comboBox
-		for(String p:configs){
-			combo.addItem(p);
+		for(File p:configs){
+			configsPresentes.put(p.getName(), p.getAbsolutePath());
+			combo.addItem(p.getName());
 		}
 	}
 
@@ -105,9 +109,12 @@ public final class FenetreChoix implements ActionListener {
 		// do something
 		if(e.getActionCommand().equals("Valider")) {
 			this.choix = combo.getSelectedItem().toString();
+			//this.fenetre.dispose();
+			App.ChargerConfig(choix,configsPresentes.get(choix));
 		}
 		else if(e.getActionCommand().equals("Editer")) {
-			System.out.println(choix);
+			//System.out.println(choix);
+			System.out.println(configsPresentes.get(choix));
 		}
 	}
 }

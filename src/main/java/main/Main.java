@@ -3,11 +3,10 @@ package main;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import utils.FenetreChoix;
-
 
 public class Main {
 	
@@ -60,8 +59,8 @@ public class Main {
 	    
 	   // GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
 		//gps.generate();
+	    
 	    FenetreChoix.getInstance().choixConf();
-	    String choix = FenetreChoix.getInstance().getChoix();
 	}
 	
 	

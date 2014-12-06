@@ -4,7 +4,6 @@ public interface Constants
 {
 	public static final String DEFAULT_MAVEN_HOME="/usr/share/maven"; 
 	
-	
 	public static final String MAVEN_HOME_PROPERTY="mavenHome";
 	
 	public static final String DEFAULT_MAVEN_REPOSITORY="http://nyx.unice.fr:9007/nexus/content/repositories/i3s-public"; 
