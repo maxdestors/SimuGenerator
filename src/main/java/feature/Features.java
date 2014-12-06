@@ -15,41 +15,34 @@ public class Features {
 	private String FM;
 	private String configName;
 	private FamiliarInterpreter fi;
-	
-	
-	public Features(String name, String config) 
+
+
+	public Features(String name) 
 	{
-		this.configName = name;
-		this.fmName = "fmTechno = ";
-		this.FM = this.fmName+ config;
+		this.fmName = name;
+		this.FM = this.fmName+" = FM(A: E F; E: (B|C|D); F: (X|Y)+;)";
+		this.configName = "Simu-Generator";
+
 		this.fi = FamiliarInterpreter.getInstance();
+
 	}
-	
-	
-	public void askConfig() {
+
+
+	public void askConfig(String s) {
 		try {
 			fi.eval(FM);
 			FeatureModelVariable fmv = fi.getFMVariable(fmName);
-	    	
-	    	System.out.println("Instancied FM : "+fmv.getSyntacticalRepresentation());
-	    	
-	    	fi.eval(configName+" = configuration "+fmName);
-	    	
-	        Scanner scan = new Scanner(System.in);
-	        String s = "";
-	        String selectCmd = "select ";
-	        
-	        do {
-	        	System.out.println("Enter the name of features you wish to select, or type exit to exit.");
-	        	s = scan.nextLine();
-	        	if (!s.equals("exit")) {
-		        	fi.eval(selectCmd+s+" in "+configName);
-		        	System.out.println("Selected features :"+fi.getSelectedFeature(configName));
-		        	System.out.println("Deselected features :"+fi.getDeselectedFeature(configName));
-		        	System.out.println("Unselected features :"+fi.getUnselectedFeature(configName));
-		        	System.out.println("The configuration is complete : "+fi.getConfigurationVariable(configName).isComplete());
-	        	}
-	        } while (!s.equals("exit"));
+
+			System.out.println("Instancied FM : "+fmv.getSyntacticalRepresentation());
+
+			fi.eval(configName+" = configuration "+fmName);
+
+			String selectCmd = "select ";
+
+			if (!s.equals("exit")) {
+				fi.eval(selectCmd+s+" in "+configName);
+			}
+
 		} catch (FMEngineException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -60,8 +53,8 @@ public class Features {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
-	
+	}
+
 	public Collection<String> getConfig() {
 		try {
 			if(fi.getConfigurationVariable(configName).isComplete()){
@@ -82,10 +75,10 @@ public class Features {
 		}
 		return null;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 }
-	
+

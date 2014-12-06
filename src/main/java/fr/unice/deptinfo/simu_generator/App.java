@@ -27,10 +27,8 @@ public class App
 		catch (Exception e){
 			System.out.println(e.toString());
 		}
-		
-		//System.out.println(chaine);
-    	
-    	Features fs = new Features(name, chaine);
-    	fs.askConfig();
+		    	
+    	Features fs = new Features(name.replaceAll(".fml", ""));
+    	fs.askConfig(chaine);
     }
 }
