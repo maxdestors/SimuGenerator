@@ -69,9 +69,7 @@ public class Main {
 	   // GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
 		//gps.generate();
 
-	    FenetreChoix.getInstance().choixConf();
-	    String choix = FenetreChoix.getInstance().getChoix();
-	    
+	    FenetreChoix.getInstance().choixConf();	    
 	}
 	
 	
