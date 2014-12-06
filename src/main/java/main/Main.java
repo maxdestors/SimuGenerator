@@ -1,25 +1,12 @@
 package main;
 
-import feature.Features;
-import generator.simulator.GenerateProjectSimulator;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
 import java.io.File;
-import java.nio.channels.FileChannel;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import utils.FenetreChoix;
 
 
 public class Main {
@@ -73,8 +60,8 @@ public class Main {
 	    
 	   // GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
 		//gps.generate();
-	    String choix = utils.FenetreChoix.choixConf();
-	    System.out.println(choix);
+	    FenetreChoix.getInstance().choixConf();
+	    String choix = FenetreChoix.getInstance().getChoix();
 	}
 	
 	
