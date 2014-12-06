@@ -10,6 +10,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+
+import javax.swing.JFrame;
+
+import utils.FenetreChoix;
 //import utils.FenetreChoix;
 import feature.Features;
 
@@ -18,7 +23,6 @@ public class App
 	
 	private static Logger logger = Logger.getLogger("main.Main");
 	 
-	
 	/*
     public static void ChargerConfig(String name, String path)
     {
@@ -44,6 +48,13 @@ public class App
     } */
     
     public static void main(String args[]) {
+    	
+    	// COMMENTER LES 4 lignes ci dessous, juste pour vérifier l'exécution de l'appli par maven
+    	JFrame jf = new JFrame();
+		jf.setTitle("Rapports test");
+		jf.setSize(430, 840);
+		jf.setVisible(true);
+    	
 		Logger.getLogger("main").setLevel(Level.ALL);
 		//String pathProject = "D:\\Documents\\GitHub\\TP_GL";
 		// Romain // C:\\Documents\\M1\\GL\\TP_GL
