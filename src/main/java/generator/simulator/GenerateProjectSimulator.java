@@ -79,7 +79,16 @@ public class GenerateProjectSimulator extends GenerateProject {
 	}
 	
 	public void Normal() {
-		logger.info("");
+		logger.info("Normal");
+		String fileContent = FileTool.loadFileIntoString(pathProject+System.getProperty("file.separator")+"src"+System.getProperty("file.separator")+"main"+System.getProperty("file.separator")+"Const.java", "UTF-8");
+		fileContent = fileContent.replace("SIMULATOR_SPEED = 10;", "SIMULATOR_SPEED = 100;");
+		try {
+			FileTool.createDirectory(pathProjectToBuild+System.getProperty("file.separator")+"src"+System.getProperty("file.separator")+"main");
+			FileTool.saveFile(pathProjectToBuild+System.getProperty("file.separator")+"src"+System.getProperty("file.separator")+"main"+System.getProperty("file.separator")+"Const.java", fileContent);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void Rapide() {
 		logger.info("");
@@ -117,7 +126,7 @@ public class GenerateProjectSimulator extends GenerateProject {
 	public void SimuTechno() {
 		logger.info("SimuTechno - main");
 		/*
-		 * main/Launcher.java
+		 * src/main/Launcher.java
 		 */
 		
 		fileToCpy.add("src"+System.getProperty("file.separator")+"main"+System.getProperty("file.separator")+"Launcher.java");

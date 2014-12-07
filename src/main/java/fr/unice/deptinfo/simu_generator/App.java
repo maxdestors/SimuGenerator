@@ -12,11 +12,13 @@ import java.util.logging.Logger;
 
 
 
+
 import javax.swing.JFrame;
 
 import utils.FenetreChoix;
 //import utils.FenetreChoix;
 import feature.Features;
+import generator.simulator.GenerateProjectSimulator;
 
 public class App 
 {
@@ -50,17 +52,17 @@ public class App
     public static void main(String args[]) {
     	
     	// COMMENTER LES 4 lignes ci dessous, juste pour vérifier l'exécution de l'appli par maven
-    	JFrame jf = new JFrame();
+    	/*JFrame jf = new JFrame();
 		jf.setTitle("Rapports test");
 		jf.setSize(430, 840);
-		jf.setVisible(true);
+		jf.setVisible(true);*/
     	
 		Logger.getLogger("main").setLevel(Level.ALL);
-		//String pathProject = "D:\\Documents\\GitHub\\TP_GL";
+		String pathProject = "D:\\Documents\\GitHub\\TP_GL";
 		// Romain // C:\\Documents\\M1\\GL\\TP_GL
 		// Max // D:\\Documents\\GitHub\\TP_GL
 		// Pierre // 
-		//String pathProjectToBuild = "D:\\Documents\\GitHub\\TP_GL_new";
+		String pathProjectToBuild = "D:\\Documents\\GitHub\\TP_GL_new";
 		// Romain // C:\\Documents\\GitHub\\TP_GL_new
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
 		// Pierre // 
@@ -99,8 +101,8 @@ public class App
     	config = new ArrayList<String>(fs.getConfig());
     	//*/
 	    
-	   // GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
-		//gps.generate();
+	    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
+		gps.generate();
 
 	    //FenetreChoix.getInstance().choixConf();	    
 	}
