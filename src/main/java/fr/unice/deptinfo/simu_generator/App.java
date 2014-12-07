@@ -22,31 +22,7 @@ public class App
 {
 	
 	private static Logger logger = Logger.getLogger("main.Main");
-	 
-	/*
-    public static void ChargerConfig(String name, String path)
-    {
-    	String chaine="";
-		
-		//lecture du fichier texte	
-		try{
-			InputStream ips=new FileInputStream(path); 
-			InputStreamReader ipsr=new InputStreamReader(ips);
-			BufferedReader br=new BufferedReader(ipsr);
-			String ligne;
-			while ((ligne=br.readLine())!=null){
-				chaine+=ligne+"\n";
-			}
-			br.close(); 
-		}		
-		catch (Exception e){
-			System.out.println(e.toString());
-		}
-		    	
-    	Features fs = new Features(name.replaceAll(".fml", ""));
-    	fs.askConfig(chaine);
-    } */
-    
+	  
     public static void main(String args[]) {
     	
     	// COMMENTER LES 4 lignes ci dessous, juste pour vérifier l'exécution de l'appli par maven
@@ -93,16 +69,16 @@ public class App
 	    config.add("Toric");
 	    config.add("Circular");
 	    config.add("Closed");
-	    /*/
-    	Features fs = new Features();
-    	fs.askConfig();
-    	config = new ArrayList<String>(fs.getConfig());
-    	//*/
 	    
-	   // GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
+    	//Features fs = new Features();
+    	//fs.askConfig();
+    	//config = new ArrayList<String>(fs.getConfig());
+    	
+	    
+	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
 		//gps.generate();
 
-	    //FenetreChoix.getInstance().choixConf();	    
+	    FenetreChoix.getInstance().choixConf();	    
 	}
 	
 	
@@ -114,4 +90,28 @@ public class App
 			file.delete();
 		}
 	}
+	
+	
+    public static void ChargerConfig(String name, String path)
+    {
+    	String chaine="";
+		
+		//lecture du fichier texte	
+		try{
+			InputStream ips=new FileInputStream(path); 
+			InputStreamReader ipsr=new InputStreamReader(ips);
+			BufferedReader br=new BufferedReader(ipsr);
+			String ligne;
+			while ((ligne=br.readLine())!=null){
+				chaine+=ligne+"\n";
+			}
+			br.close(); 
+		}		
+		catch (Exception e){
+			System.out.println(e.toString());
+		}
+		    	
+    	Features fs = new Features(name.replaceAll(".fml", ""));
+    	fs.askConfig(chaine);
+    }
 }

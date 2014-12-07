@@ -24,7 +24,7 @@ public final class FenetreChoix implements ActionListener {
 	private static volatile FenetreChoix instance = null;
 	private JFrame fenetre = new JFrame();
 	private JPanel container = new JPanel();
-	private JComboBox combo = new JComboBox();
+	private JComboBox<String> combo = new JComboBox<String>();
 	private Map<String,String> configsPresentes = new HashMap<String,String>();
 	
 	public String getChoix(){
@@ -49,7 +49,6 @@ public final class FenetreChoix implements ActionListener {
 	}
 	
 	public void choixConf(){
-		//String choix;
 		File f = null;
 		File[] configs;
 		f = new File("./config");
@@ -100,14 +99,12 @@ public final class FenetreChoix implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		// do something
 		if(e.getActionCommand().equals("Valider")) {
 			this.choix = combo.getSelectedItem().toString();
-			//this.fenetre.dispose();
-			//App.ChargerConfig(choix,configsPresentes.get(choix)); //-----------------------------------
+			this.fenetre.dispose();
+			App.ChargerConfig(choix,configsPresentes.get(choix));
 		}
 		else if(e.getActionCommand().equals("Editer")) {
-			//System.out.println(choix);
 			System.out.println(configsPresentes.get(choix));
 		}
 	}
