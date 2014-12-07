@@ -18,12 +18,12 @@ public class Features {
 	public Features(String name) 
 	{
 		this.fmName = name;
-		this.FM = this.fmName+" = FM(SimuTechno: [Creature] [Visu] Moteur; "
+		this.FM = this.fmName+" = FM(SimuTechno: Creature Visu Moteur; "
 								+ "Creature: Movement Environnement Couleur Nombre; "
 								+ "Movement: (Random|Flock|Bouncing)+; "
 								+ "Couleur: (Cube|Groupe|Unique); "
 								+ "Environnement: (Toric|Circular|Closed); "
-								+ "Nombre: (NAleatoire|Fixe); "
+								+ "Nombre: NAleatoire; "
 								+ "NAleatoire: (Dizaine|Centaine|Milliers); "
 								+ "Moteur: VitesseSimu Action; "
 								+ "Action: Sequentiel; "
