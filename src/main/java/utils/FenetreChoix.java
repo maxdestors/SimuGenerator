@@ -104,7 +104,7 @@ public final class FenetreChoix implements ActionListener {
 			this.fenetre.dispose();
 			App.ChargerConfig(choix,configsPresentes.get(choix));
 		}
-		else if(e.getActionCommand().equals("Editer")) {
+		else if(e.getActionCommand().equals("Afficher")) {
 			System.out.println(configsPresentes.get(choix));
 		}
 	}
