@@ -41,7 +41,7 @@ public class App
 		String pathProjectToBuild = "C:\\Users\\Pierre\\Desktop\\GL\\TEST";
 		// Romain // C:\\Documents\\GitHub\\TP_GL_new
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
-		// Pierre // 
+		// Pierre // C:\\Users\\Pierre\\Desktop\\GL\\TEST
 		
 		/* ATTENTION A BIEN VERIFIER VOTRE CHEMIN AVANT DE DECOMMENTER !!!
 		// supprime tout les fichier dans le nouveau projet (pas b'soin de l'faire a la main)
