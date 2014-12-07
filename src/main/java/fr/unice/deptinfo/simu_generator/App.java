@@ -77,8 +77,8 @@ public class App
     	config = new ArrayList<String>(fs.getConfig());
     	//*/
 	    
-	    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
-		gps.generate();
+	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
+		//gps.generate();
 
 	    FenetreChoix.getInstance().choixConf();	    
 	}
