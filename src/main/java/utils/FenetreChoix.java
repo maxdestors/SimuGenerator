@@ -9,7 +9,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.inject.Singleton;
+//import javax.inject.Singleton;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -37,14 +37,14 @@ public final class FenetreChoix implements ActionListener {
 	}
 	
 	public final static FenetreChoix getInstance() {
-		if(FenetreChoix.instance == null){
-			synchronized (Singleton.class) {
+		/*if(FenetreChoix.instance == null){
+			synchronized (Singleton.class) {*/
 				if(FenetreChoix.instance == null){
 					FenetreChoix.instance = new FenetreChoix();
 				}
 				
-			}
-		}
+			//}
+		//}
 		return FenetreChoix.instance;
 	}
 	
