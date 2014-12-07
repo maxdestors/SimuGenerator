@@ -42,9 +42,12 @@ public class Features {
 
 			fi.eval(configName+" = configuration "+fmName);
 
-			
+
 			String s = "";
 			String selectCmd = "select ";
+			String deselectCmd = "deselect ";
+			ArrayList<String> unselectList = new ArrayList<String>();
+			
 			//Va permettre d'iterer dans le ArrayList
 			int index = 0;
 			do {
@@ -52,10 +55,20 @@ public class Features {
 				System.out.println(s);
 				if (!s.equals("exit")) {
 					fi.eval(selectCmd+s+" in "+configName);
+					
 					index++;
 				}
 			} while (!s.equals("exit"));
-
+			
+			unselectList.addAll(fi.getUnselectedFeature(configName));
+			for(String p:unselectList){
+				fi.eval(deselectCmd+p+" in "+configName);
+			}
+			
+			System.out.println("Selected features :"+fi.getSelectedFeature(configName));
+			System.out.println("Deselected features :"+fi.getDeselectedFeature(configName));
+			System.out.println("Unselected features :"+fi.getUnselectedFeature(configName));
+			System.out.println("The configuration is complete : "+fi.getConfigurationVariable(configName).isComplete());
 
 			fi.eval(configName+" = configuration "+fmName);
 
@@ -65,6 +78,12 @@ public class Features {
 			}
 
 		} catch (FMEngineException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (VariableNotExistingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (VariableAmbigousConflictException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
