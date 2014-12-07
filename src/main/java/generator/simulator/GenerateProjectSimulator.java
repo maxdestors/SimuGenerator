@@ -292,10 +292,6 @@ public class GenerateProjectSimulator {
 
 	}
 
-	public void Groupe() {
-		logger.info("");
-	}
-
 	public void Milliers() {
 		String fileContent = FileTool.loadFileIntoString(
 				pathProject + System.getProperty("file.separator") + "src"
@@ -469,10 +465,6 @@ public class GenerateProjectSimulator {
 		logger.info("");
 	}
 
-	public void Fixe() {
-		logger.info("");
-	}
-
 	public void Cube() {
 		logger.info("");
 	}
@@ -490,10 +482,6 @@ public class GenerateProjectSimulator {
 						+ System.getProperty("file.separator")
 						+ "WorldClosedTest.java");
 
-	}
-
-	public void Unique() {
-		logger.info("");
 	}
 
 	public void Flock() {

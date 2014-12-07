@@ -22,7 +22,7 @@ public class Features {
 		this.FM = this.fmName+" = FM(SimuTechno: Creature Visu Moteur; "
 								+ "Creature: Movement Environnement Couleur Nombre; "
 								+ "Movement: (Random|Flock|Bouncing)+; "
-								+ "Couleur: (Cube|Groupe|Unique); "
+								+ "Couleur: Cube; "
 								+ "Environnement: (Toric|Circular|Closed); "
 								+ "Nombre: NAleatoire; "
 								+ "NAleatoire: (Dizaine|Centaine|Milliers); "
