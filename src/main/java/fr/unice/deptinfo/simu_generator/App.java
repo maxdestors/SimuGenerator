@@ -22,7 +22,9 @@ public class App
 {
 	
 	private static Logger logger = Logger.getLogger("main.Main");
-	  
+	 
+
+    
     public static void main(String args[]) {
     	
     	// COMMENTER LES 4 lignes ci dessous, juste pour vérifier l'exécution de l'appli par maven
@@ -32,11 +34,11 @@ public class App
 		jf.setVisible(true);*/
     	
 		Logger.getLogger("main").setLevel(Level.ALL);
-		//String pathProject = "D:\\Documents\\GitHub\\TP_GL";
+		String pathProject = "C:\\Users\\Pierre\\Desktop\\GL\\TP_GL";
 		// Romain // C:\\Documents\\M1\\GL\\TP_GL
 		// Max // D:\\Documents\\GitHub\\TP_GL
-		// Pierre // 
-		//String pathProjectToBuild = "D:\\Documents\\GitHub\\TP_GL_new";
+		// Pierre // C:\\Users\\Pierre\\Desktop\\GL\\TEST
+		String pathProjectToBuild = "C:\\Users\\Pierre\\Desktop\\GL\\TEST";
 		// Romain // C:\\Documents\\GitHub\\TP_GL_new
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
 		// Pierre // 
@@ -69,14 +71,14 @@ public class App
 	    config.add("Toric");
 	    config.add("Circular");
 	    config.add("Closed");
+	    /*/
+    	Features fs = new Features();
+    	fs.askConfig();
+    	config = new ArrayList<String>(fs.getConfig());
+    	//*/
 	    
-    	//Features fs = new Features();
-    	//fs.askConfig();
-    	//config = new ArrayList<String>(fs.getConfig());
-    	
-	    
-	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
-		//gps.generate();
+	    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
+		gps.generate();
 
 	    FenetreChoix.getInstance().choixConf();	    
 	}
@@ -90,6 +92,7 @@ public class App
 			file.delete();
 		}
 	}
+
 	
 	
     public static void ChargerConfig(String name, String path)
@@ -115,4 +118,5 @@ public class App
     	Features fs = new Features(name.replaceAll(".fml", ""));
     	fs.askConfig(listConfigs);
     }
+
 }

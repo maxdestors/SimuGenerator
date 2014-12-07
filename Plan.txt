@@ -1,0 +1,5 @@
+
+	- Creer Config et la donner à manger à GenerateProjectSimulator
+	- Copier les fichiers correspondants à la config
+	- Générer un Launcher adapté à la config
+	- Compiler le projet généré
