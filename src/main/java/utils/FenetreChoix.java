@@ -102,7 +102,7 @@ public final class FenetreChoix implements ActionListener {
 		if(e.getActionCommand().equals("Valider")) {
 			this.choix = combo.getSelectedItem().toString();
 			this.fenetre.dispose();
-			App.ChargerConfig(choix,configsPresentes.get(choix));
+			//App.ChargerConfig(choix,configsPresentes.get(choix));
 		}
 		else if(e.getActionCommand().equals("Editer")) {
 			System.out.println(configsPresentes.get(choix));
