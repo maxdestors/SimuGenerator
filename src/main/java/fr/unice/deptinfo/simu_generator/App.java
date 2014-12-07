@@ -12,11 +12,13 @@ import java.util.logging.Logger;
 
 
 
+
 import javax.swing.JFrame;
 
 import utils.FenetreChoix;
 //import utils.FenetreChoix;
 import feature.Features;
+import generator.simulator.GenerateProjectSimulator;
 
 public class App 
 {
@@ -77,8 +79,8 @@ public class App
     	config = new ArrayList<String>(fs.getConfig());
     	//*/
 	    
-	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
-		//gps.generate();
+	    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
+		gps.generate();
 
 	    FenetreChoix.getInstance().choixConf();	    
 	}
