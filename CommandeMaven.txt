@@ -1,0 +1,3 @@
+	- mvn clean dependency:copy-dependencies package
+
+	- java -cp target/simu-generator-0.0.1.jar fr.unice.deptinfo.simu_generator.App
