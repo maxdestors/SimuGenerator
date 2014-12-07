@@ -1,6 +1,7 @@
 package feature;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import fr.unice.deptinfo.familiar_interpreter.FMEngineException;
 import fr.unice.deptinfo.familiar_interpreter.impl.FamiliarInterpreter;
@@ -34,7 +35,7 @@ public class Features {
 
 	}
 
-	public void askConfig(ArrayList<String> listConfig){
+	public Collection<String> askConfig(ArrayList<String> listConfig){
 		try {
 			fi.eval(FM);
 			try {
@@ -82,9 +83,15 @@ public class Features {
 			fi.eval(configName+" = configuration "+fmName);
 
 
-			if (!s.equals("exit")) {
+			/*if (!s.equals("exit")) {
 				fi.eval(selectCmd+s+" in "+configName);
+			}*/
+			
+			if(fi.getConfigurationVariable(configName).isComplete()) {
+				return fi.getSelectedFeature(configName);
 			}
+			
+			
 
 		} catch (FMEngineException e) {
 			// TODO Auto-generated catch block
@@ -97,6 +104,7 @@ public class Features {
 			e.printStackTrace();
 		}
 
+		return null;
 
 	}
 

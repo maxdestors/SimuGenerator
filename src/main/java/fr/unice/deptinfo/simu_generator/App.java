@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -155,8 +156,8 @@ public class App
 		logger.info("Erase : "+pathProjectToBuild+"*");
 		//*/
 		
-	    List<String> config = new ArrayList<String>();
-		//* Lent, Sequentiel, Action, VitesseSimu, Moteur, SimuTechno, Rapide, Normal
+	    //List<String> config = new ArrayList<String>();
+		/* Lent, Sequentiel, Action, VitesseSimu, Moteur, SimuTechno, Rapide, Normal
 	    config.add("SimuTechno");
 	    config.add("Moteur");
 	    config.add("Action");
@@ -178,9 +179,9 @@ public class App
 	    config.add("Circular");
 	    config.add("Closed");
 	    /*/
-    	Features fs = new Features();
-    	fs.askConfig();
-    	config = new ArrayList<String>(fs.getConfig());
+    	//Features fs = new Features();
+    	//fs.askConfig();
+    	//config = new ArrayList<String>(fs.getConfig());
     	//*/
 	    
 	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
@@ -221,7 +222,16 @@ public class App
 		}
 		    	
     	Features fs = new Features(name.replaceAll(".fml", ""));
-    	fs.askConfig(listConfigs);
+    	Collection<String> config = fs.askConfig(listConfigs);
+    	
+    	if(config != null) {
+		    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, new ArrayList<String>(config));
+			gps.generate();
+    	}
+    	else {
+    		logger.info("La configuration est invalide le projet n'a pas pu etre compile");
+    	}
+
     }
 
 }
