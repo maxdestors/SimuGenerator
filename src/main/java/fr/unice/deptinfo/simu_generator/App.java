@@ -65,8 +65,15 @@ public class App
 		{
 		    public void actionPerformed(ActionEvent e)
 		    {
+		    	if(pathProject != null && pathProjectToBuild != null){
 		    	fenetre.dispose();
 		    	FenetreChoix.getInstance().choixConf();
+		    	}
+		    	else
+		    	{
+		    		javax.swing.JOptionPane.showMessageDialog(null,"Veuillez selectionner le repertoire "
+		    														+ "source et le repertoire de destination"); 
+		    	}
 		    }
 		});
 		
