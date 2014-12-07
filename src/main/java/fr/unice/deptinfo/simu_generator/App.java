@@ -1,5 +1,10 @@
 package fr.unice.deptinfo.simu_generator;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,11 +14,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 
 
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import utils.FenetreChoix;
 //import utils.FenetreChoix;
@@ -22,12 +35,96 @@ import generator.simulator.GenerateProjectSimulator;
 
 public class App 
 {
-	
+	//variable utile pour l'interface graphique
 	private static Logger logger = Logger.getLogger("main.Main");
-	 
- 
+	private static String pathProject = null;
+	private static String pathProjectToBuild = null;
+    private static JFrame fenetre = new JFrame();
+    
     
     public static void main(String args[]) {
+    	
+    	
+    	//========= Création de l'interface graphique =========//
+    	JPanel container = new JPanel();
+    	
+    	
+		JButton buttonValider = new JButton("Valider");
+		JButton buttonAnnuler = new JButton("Annuler");
+		JButton buttonOrig = new JButton("Source");
+		JButton buttonDest = new JButton("Destination");
+		buttonAnnuler.addActionListener(new ActionListener()
+		{
+		    public void actionPerformed(ActionEvent e)
+		    {
+		        System.exit(0);
+		    }
+		});
+		
+		buttonValider.addActionListener(new ActionListener()
+		{
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	fenetre.dispose();
+		    	FenetreChoix.getInstance().choixConf();
+		    }
+		});
+		
+		buttonOrig.addActionListener(new ActionListener()
+		{
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	//Create a file chooser
+		    	final JFileChooser fc = new JFileChooser();
+		    	fc.setMultiSelectionEnabled(false);
+		    	fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		    	
+		    	//In response to a button click:
+		    	fc.showOpenDialog(fenetre);
+		    	pathProject = fc.getSelectedFile().toString();
+		    }
+		});
+		
+		buttonDest.addActionListener(new ActionListener()
+		{
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	//Create a file chooser
+		    	final JFileChooser fc = new JFileChooser();
+		    	fc.setMultiSelectionEnabled(false);
+		    	fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		    	
+		    	//In response to a button click:
+		    	fc.showOpenDialog(fenetre);
+		    	pathProjectToBuild = fc.getSelectedFile().toString();
+		    }
+		});
+		fenetre.add(container);
+		fenetre.setTitle("Simu-generator");
+		fenetre.setSize(250, 150);
+		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fenetre.setLocationRelativeTo(null);
+
+		container.setBackground(Color.white);
+		container.setLayout(new BorderLayout());
+		
+		JPanel down = new JPanel();
+		JPanel top = new JPanel();
+		
+		
+		down.add(buttonValider, BorderLayout.EAST);
+		down.add(buttonAnnuler, BorderLayout.WEST);
+		top.add(buttonOrig, BorderLayout.EAST);
+		top.add(buttonDest, BorderLayout.WEST);
+		container.add(down, BorderLayout.SOUTH);
+		container.add(top, BorderLayout.CENTER);
+		
+		fenetre.setContentPane(container);
+		fenetre.setVisible(true);    
+ 
+		
+    	
+    	
     	
     	// COMMENTER LES 4 lignes ci dessous, juste pour vérifier l'exécution de l'appli par maven
     	/*JFrame jf = new JFrame();
@@ -36,11 +133,11 @@ public class App
 		jf.setVisible(true);*/
     	
 		Logger.getLogger("main").setLevel(Level.ALL);
-		String pathProject = "D:\\Documents\\GitHub\\TP_GL";
+		
 		// Romain // C:\\Documents\\M1\\GL\\TP_GL
 		// Max // D:\\Documents\\GitHub\\TP_GL
 		// Pierre // C:\\Users\\Pierre\\Desktop\\GL\\TEST
-		String pathProjectToBuild = "D:\\Documents\\GitHub\\TP_GL_new";
+		
 		// Romain // C:\\Documents\\GitHub\\TP_GL_new
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
 		// Pierre // C:\\Users\\Pierre\\Desktop\\GL\\TEST
@@ -79,14 +176,13 @@ public class App
     	config = new ArrayList<String>(fs.getConfig());
     	//*/
 	    
-	    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
-		gps.generate();
+	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
+		//gps.generate();
 
-	    //FenetreChoix.getInstance().choixConf();	    
+	    	    
 	}
 	
-	
-	public static void emptyDirectory(File folder){
+  	public static void emptyDirectory(File folder){
 		for(File file : folder.listFiles()){
 			if(file.isDirectory()){
 				emptyDirectory(file);
@@ -122,3 +218,27 @@ public class App
     }
 
 }
+
+/*
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JFileChooser;
+
+class EssaiChoixFichier {
+    public static void main(String[] arg) throws IOException {
+	JFileChooser dialogue = new JFileChooser(new File("."));
+	PrintWriter sortie;
+	File fichier;
+	
+	if (dialogue.showOpenDialog(null)== 
+	    JFileChooser.APPROVE_OPTION) {
+	    fichier = dialogue.getSelectedFile();
+	    sortie = new PrintWriter
+		(new FileWriter(fichier.getPath(), true));
+	    sortie.println(arg[0]);
+	    sortie.close();
+	}
+    }
+}*/
