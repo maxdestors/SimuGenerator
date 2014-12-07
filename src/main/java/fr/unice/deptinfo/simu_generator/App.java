@@ -78,7 +78,7 @@ public class App
 	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
 		//gps.generate();
 
-	    //FenetreChoix.getInstance().choixConf();	    
+	    FenetreChoix.getInstance().choixConf();	    
 	}
 	
 	
@@ -94,7 +94,7 @@ public class App
 	
     public static void ChargerConfig(String name, String path)
     {
-    	String chaine="";
+    	ArrayList<String> listConfigs = new ArrayList<String>();
 		
 		//lecture du fichier texte	
 		try{
@@ -103,15 +103,16 @@ public class App
 			BufferedReader br=new BufferedReader(ipsr);
 			String ligne;
 			while ((ligne=br.readLine())!=null){
-				chaine+=ligne+"\n";
+				listConfigs.add(ligne);
 			}
-			br.close(); 
+			br.close();
+			listConfigs.add("exit");
 		}		
 		catch (Exception e){
 			System.out.println(e.toString());
 		}
 		    	
     	Features fs = new Features(name.replaceAll(".fml", ""));
-    	fs.askConfig(chaine);
+    	fs.askConfig(listConfigs);
     }
 }
