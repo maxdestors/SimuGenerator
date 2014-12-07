@@ -18,7 +18,16 @@ public class Features {
 	public Features(String name) 
 	{
 		this.fmName = name;
-		this.FM = this.fmName+" = FM(A: E F; E: (B|C|D); F: (X|Y)+;)";
+		this.FM = this.fmName+" = FM(SimuTechno: [Creature] [Visu] Moteur; "
+								+ "Creature: Movement Environnement Couleur Nombre; "
+								+ "Movement: (Random|Flock|Bouncing)+; "
+								+ "Couleur: (Cube|Groupe|Unique); "
+								+ "Environnement: (Toric|Circular|Closed); "
+								+ "Nombre: (NAleatoire|Fixe); "
+								+ "NAleatoire: (Dizaine|Centaine|Milliers); "
+								+ "Moteur: VitesseSimu Action; "
+								+ "Action: Sequentiel; "
+								+ "VitesseSimu: (Lent|Rapide|Normal);)";
 		this.configName = "SimuGenerator";
 
 		this.fi = FamiliarInterpreter.getInstance();
