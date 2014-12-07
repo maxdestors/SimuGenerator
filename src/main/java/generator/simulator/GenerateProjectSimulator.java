@@ -1,23 +1,37 @@
 package generator.simulator;
 
-import generator.GenerateProject;
-
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
 import utils.FileTool;
 
-public class GenerateProjectSimulator extends GenerateProject {
+public class GenerateProjectSimulator {
+		
+	protected String pathProject; // Projet 'temoin'
 	
-	 private static Logger logger = Logger.getLogger("generator.simulator.GeneratorProjectSimulator");
+	protected String pathProjectToBuild; // chemin ou l'on va mettre le nouveau projet
+	
+	protected List<String> config; // String contenant les configurations de création du projet
+	
+	protected List<String> dirToCpy; // on ajoute les fichiers besoins
+	
+	protected List<String> fileToCpy; // on ajoute les dossier besoins
+
+	
+	private static Logger logger = Logger.getLogger("generator.simulator.GeneratorProjectSimulator");
 
 	
 	public GenerateProjectSimulator(String pathProject, String pathProjectToBuild, List<String> configuration) {
-		super(pathProject, pathProjectToBuild, configuration);
+		this.pathProject = pathProject;
+		this.pathProjectToBuild = pathProjectToBuild;
+		this.config = configuration;
+		this.dirToCpy = new ArrayList<String>();
+		this.fileToCpy = new ArrayList<String>();
 	}
 	
 	public void generate() {
