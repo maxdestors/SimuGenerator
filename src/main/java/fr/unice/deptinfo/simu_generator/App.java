@@ -132,73 +132,11 @@ public class App
  
 		
     	
-    	
-    	
-    	// COMMENTER LES 4 lignes ci dessous, juste pour vérifier l'exécution de l'appli par maven
-    	/*JFrame jf = new JFrame();
-		jf.setTitle("Rapports test");
-		jf.setSize(430, 840);
-		jf.setVisible(true);*/
-    	
 		Logger.getLogger("main").setLevel(Level.ALL);
 		
-		// Romain // C:\\Documents\\M1\\GL\\TP_GL
-		// Max // D:\\Documents\\GitHub\\TP_GL
-		// Pierre // C:\\Users\\Pierre\\Desktop\\GL\\TEST
-		
-		// Romain // C:\\Documents\\GitHub\\TP_GL_new
-		// Max // D:\\Documents\\GitHub\\TP_GL_new
-		// Pierre // C:\\Users\\Pierre\\Desktop\\GL\\TEST
-		
-		/* ATTENTION A BIEN VERIFIER VOTRE CHEMIN AVANT DE DECOMMENTER !!!
-		// supprime tout les fichier dans le nouveau projet (pas b'soin de l'faire a la main)
-		emptyDirectory(new File(pathProjectToBuild));
-		logger.info("Erase : "+pathProjectToBuild+"*");
-		//*/
-		
-	    //List<String> config = new ArrayList<String>();
-		/* Lent, Sequentiel, Action, VitesseSimu, Moteur, SimuTechno, Rapide, Normal
-	    config.add("SimuTechno");
-	    config.add("Moteur");
-	    config.add("Action");
-	    config.add("VitesseSimu");
-	    config.add("Sequentiel");
-	    config.add("Rapide");
-	    config.add("Normal");
-	    config.add("Lent");
-	    config.add("Visu");
-	    config.add("Creature");
-	    config.add("Movement");
-	    config.add("Environnement");
-	    config.add("Couleur");
-	    config.add("Nombre");
-	    config.add("Random");
-	    config.add("Flock");
-	    config.add("Bouncing");
-	    config.add("Toric");
-	    config.add("Circular");
-	    config.add("Closed");
-	    /*/
-    	//Features fs = new Features();
-    	//fs.askConfig();
-    	//config = new ArrayList<String>(fs.getConfig());
-    	//*/
-	    
-	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
-		//gps.generate();
-
 	    	    
 	}
 	
-  	public static void emptyDirectory(File folder){
-		for(File file : folder.listFiles()){
-			if(file.isDirectory()){
-				emptyDirectory(file);
-			}
-			file.delete();
-		}
-	}
-
 	
 	
     public static void ChargerConfig(String name, String path)
@@ -235,27 +173,3 @@ public class App
     }
 
 }
-
-/*
-import java.io.File;
-import java.io.PrintWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import javax.swing.JFileChooser;
-
-class EssaiChoixFichier {
-    public static void main(String[] arg) throws IOException {
-	JFileChooser dialogue = new JFileChooser(new File("."));
-	PrintWriter sortie;
-	File fichier;
-	
-	if (dialogue.showOpenDialog(null)== 
-	    JFileChooser.APPROVE_OPTION) {
-	    fichier = dialogue.getSelectedFile();
-	    sortie = new PrintWriter
-		(new FileWriter(fichier.getPath(), true));
-	    sortie.println(arg[0]);
-	    sortie.close();
-	}
-    }
-}*/
