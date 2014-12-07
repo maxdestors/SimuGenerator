@@ -23,7 +23,7 @@ public class Features {
 								+ "Creature: Movement Environnement Couleur Nombre; "
 								+ "Movement: (Random|Flock|Bouncing)+; "
 								+ "Couleur: Cube; "
-								+ "Environnement: (Toric|Circular|Closed); "
+								+ "Environnement: (Toric|Circular|Closed)+; "
 								+ "Nombre: NAleatoire; "
 								+ "NAleatoire: (Dizaine|Centaine|Milliers); "
 								+ "Moteur: VitesseSimu Action; "
@@ -80,14 +80,14 @@ public class Features {
 			System.out.println("Unselected features :"+fi.getUnselectedFeature(configName));
 			System.out.println("The configuration is complete : "+fi.getConfigurationVariable(configName).isComplete());
 
-			fi.eval(configName+" = configuration "+fmName);
+			//fi.eval(configName+" = configuration "+fmName);
 
 
 			/*if (!s.equals("exit")) {
 				fi.eval(selectCmd+s+" in "+configName);
 			}*/
-			
-			if(fi.getConfigurationVariable(configName).isComplete()) {
+
+			if(fi.getConfigurationVariable(configName).isComplete() == true) {
 				return fi.getSelectedFeature(configName);
 			}
 			
