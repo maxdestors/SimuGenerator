@@ -1,8 +1,6 @@
 package feature;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Scanner;
 
 import fr.unice.deptinfo.familiar_interpreter.FMEngineException;
 import fr.unice.deptinfo.familiar_interpreter.impl.FamiliarInterpreter;
@@ -27,63 +25,11 @@ public class Features {
 
 	}
 
-	/*
- public void askConfig(ArrayList<String> s) {
-  try {
-
-	  fi.eval(FM);
-   FeatureModelVariable fmv = fi.getFMVariable(fmName);
-
-   System.out.println("Instancied FM : "+fmv.getSyntacticalRepresentation());
-
-   System.out.println("select "+s+" in "+configName);
-   fi.eval(configName+" = configuration "+fmName);
-
-   String selectCmd = "select ";
-
-   System.out.println("##################");
-   System.out.println(selectCmd+s+" in "+configName);
-   System.out.println("##################");
-
-   fi.eval(selectCmd+s+" in "+configName);
-
-  } catch (FMEngineException e) {
-   // TODO Auto-generated catch block
-   e.printStackTrace();
-  } catch (VariableNotExistingException e) {
-   // TODO Auto-generated catch block
-   e.printStackTrace();
-  } catch (VariableAmbigousConflictException e) {
-   // TODO Auto-generated catch block
-   e.printStackTrace();
-  }
- }
-
- public Collection<String> getConfig() {
-  try {
-   if(fi.getConfigurationVariable(configName).isComplete()){
-    return fi.getSelectedFeature(configName);
-   }
-  } catch (VariableNotExistingException e) {
-   // TODO Auto-generated catch block
-   e.printStackTrace();
-   return null;
-  } catch (VariableAmbigousConflictException e) {
-   // TODO Auto-generated catch block
-   e.printStackTrace();
-   return null;
-  } catch (FMEngineException e) {
-   // TODO Auto-generated catch block
-   e.printStackTrace();
-   return null;
-  }
-  return null;
- }
-	 */
 	public void askConfig(ArrayList<String> listConfig){
 		try {
 			fi.eval(FM);
 			try {
+				@SuppressWarnings("unused")
 				FeatureModelVariable fmv = fi.getFMVariable(fmName);
 			} catch (VariableNotExistingException e) {
 				// TODO Auto-generated catch block
