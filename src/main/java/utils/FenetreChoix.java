@@ -9,12 +9,12 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.inject.Singleton;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import com.google.inject.Singleton;
 
 import fr.unice.deptinfo.simu_generator.App;
 

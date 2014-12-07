@@ -26,10 +26,10 @@ public class App
     public static void main(String args[]) {
     	
     	// COMMENTER LES 4 lignes ci dessous, juste pour vérifier l'exécution de l'appli par maven
-    	JFrame jf = new JFrame();
+    	/*JFrame jf = new JFrame();
 		jf.setTitle("Rapports test");
 		jf.setSize(430, 840);
-		jf.setVisible(true);
+		jf.setVisible(true);*/
     	
 		Logger.getLogger("main").setLevel(Level.ALL);
 		//String pathProject = "D:\\Documents\\GitHub\\TP_GL";
@@ -78,7 +78,7 @@ public class App
 	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
 		//gps.generate();
 
-	    FenetreChoix.getInstance().choixConf();	    
+	    //FenetreChoix.getInstance().choixConf();	    
 	}
 	
 	
