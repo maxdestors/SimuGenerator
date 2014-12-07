@@ -12,11 +12,13 @@ import java.util.logging.Logger;
 
 
 
+
 import javax.swing.JFrame;
 
 import utils.FenetreChoix;
 //import utils.FenetreChoix;
 import feature.Features;
+import generator.simulator.GenerateProjectSimulator;
 
 public class App 
 {
@@ -34,11 +36,11 @@ public class App
 		jf.setVisible(true);*/
     	
 		Logger.getLogger("main").setLevel(Level.ALL);
-		String pathProject = "C:\\Users\\Pierre\\Desktop\\GL\\TP_GL";
+		String pathProject = "D:\\Documents\\GitHub\\TP_GL";
 		// Romain // C:\\Documents\\M1\\GL\\TP_GL
 		// Max // D:\\Documents\\GitHub\\TP_GL
 		// Pierre // C:\\Users\\Pierre\\Desktop\\GL\\TEST
-		String pathProjectToBuild = "C:\\Users\\Pierre\\Desktop\\GL\\TEST";
+		String pathProjectToBuild = "D:\\Documents\\GitHub\\TP_GL_new";
 		// Romain // C:\\Documents\\GitHub\\TP_GL_new
 		// Max // D:\\Documents\\GitHub\\TP_GL_new
 		// Pierre // C:\\Users\\Pierre\\Desktop\\GL\\TEST
@@ -77,10 +79,10 @@ public class App
     	config = new ArrayList<String>(fs.getConfig());
     	//*/
 	    
-	    //GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
-		//gps.generate();
+	    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, config);
+		gps.generate();
 
-	    FenetreChoix.getInstance().choixConf();	    
+	    //FenetreChoix.getInstance().choixConf();	    
 	}
 	
 	

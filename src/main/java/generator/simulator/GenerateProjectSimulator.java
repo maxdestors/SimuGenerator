@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import utils.FileTool;
+import utils.MavenCompiler;
 
 public class GenerateProjectSimulator {
 		
@@ -76,6 +77,18 @@ public class GenerateProjectSimulator {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+		
+		
+		// maven compiler
+		
+		MavenCompiler mc = new MavenCompiler();
+		mc.compile(new File(pathProjectToBuild), new File(pathProjectToBuild+System.getProperty("file.separator")+"target"));
+		
+		System.out.println("success : "+mc.isLastCompilationSucessful());
+		System.out.println(mc.getLastCompilationMessage());
+		
+		
 
 	}
 	

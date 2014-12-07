@@ -2,7 +2,8 @@ package utils;
 
 public interface Constants 
 {
-	public static final String DEFAULT_MAVEN_HOME="/usr/share/maven"; 
+	
+	public static final String DEFAULT_MAVEN_HOME= System.getenv().get("M3_HOME"); // "D:\\logiciel\\apache-maven-3.2.3"; 
 	
 	public static final String MAVEN_HOME_PROPERTY="mavenHome";
 	
@@ -12,9 +13,9 @@ public interface Constants
 	
 	public static final String MAVEN_REPOSITORY_ID_PROPERTY="mavenRepositoryID";
 	
-	public static final String DEFAULT_MAVEN_REPOSITORY_ID="releases"; 
+	public static final String DEFAULT_MAVEN_REPOSITORY_ID="releases";
 
-	public static final String REQUEST_TIMEOUT_DEFAULT_VALUE="600000"; 
+	public static final String REQUEST_TIMEOUT_DEFAULT_VALUE="600000";
 
 
 }
