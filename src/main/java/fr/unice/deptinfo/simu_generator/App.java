@@ -65,7 +65,7 @@ public class App
 		{
 		    public void actionPerformed(ActionEvent e)
 		    {
-		    	if(pathProject != null && pathProjectToBuild != null){
+		    	if(pathProjectToBuild != null){
 		    	fenetre.dispose();
 		    	FenetreChoix.getInstance().choixConf();
 		    	}
