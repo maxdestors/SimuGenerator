@@ -229,6 +229,8 @@ public class GenerateProjectSimulator {
 		fileToCpy.add("src" + System.getProperty("file.separator") + "main"
 				+ System.getProperty("file.separator") + "Launcher.java");
 		fileToCpy.add(System.getProperty("file.separator") + "pom.xml");
+		
+		dirToCpy.add("myplugins");
 
 	}
 
