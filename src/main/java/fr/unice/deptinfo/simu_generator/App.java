@@ -38,7 +38,7 @@ public class App
 {
 	//variable utile pour l'interface graphique
 	private static Logger logger = Logger.getLogger("main.Main");
-	private static File pathProject = new File("./TP_GL");
+	private static File pathProject = new File("./../TP_GL");
 	private static File pathProjectToBuild = null;
     private static JFrame fenetre = new JFrame();
     
