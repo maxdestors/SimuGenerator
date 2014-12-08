@@ -80,6 +80,13 @@ public class Features {
 			System.out.println("Unselected features :"+fi.getUnselectedFeature(configName));
 			System.out.println("The configuration is complete : "+fi.getConfigurationVariable(configName).isComplete());
 
+			//fi.eval(configName+" = configuration "+fmName);
+
+
+			/*if (!s.equals("exit")) {
+				fi.eval(selectCmd+s+" in "+configName);
+			}*/
+
 			if(fi.getConfigurationVariable(configName).isComplete() == true) {
 				return fi.getSelectedFeature(configName);
 			}

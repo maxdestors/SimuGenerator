@@ -38,8 +38,8 @@ public class App
 {
 	//variable utile pour l'interface graphique
 	private static Logger logger = Logger.getLogger("main.Main");
-	private static String pathProject = null;
-	private static String pathProjectToBuild = null;
+	private static File pathProject = new File("./TP_GL");
+	private static File pathProjectToBuild = null;
     private static JFrame fenetre = new JFrame();
     
     
@@ -52,7 +52,6 @@ public class App
     	
 		JButton buttonValider = new JButton("Valider");
 		JButton buttonAnnuler = new JButton("Annuler");
-		JButton buttonOrig = new JButton("Source");
 		JButton buttonDest = new JButton("Destination");
 		buttonAnnuler.addActionListener(new ActionListener()
 		{
@@ -78,21 +77,6 @@ public class App
 		    }
 		});
 		
-		buttonOrig.addActionListener(new ActionListener()
-		{
-		    public void actionPerformed(ActionEvent e)
-		    {
-		    	//Create a file chooser
-		    	final JFileChooser fc = new JFileChooser();
-		    	fc.setMultiSelectionEnabled(false);
-		    	fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		    	
-		    	//In response to a button click:
-		    	fc.showOpenDialog(fenetre);
-		    	pathProject = fc.getSelectedFile().toString();
-		    }
-		});
-		
 		buttonDest.addActionListener(new ActionListener()
 		{
 		    public void actionPerformed(ActionEvent e)
@@ -104,7 +88,7 @@ public class App
 		    	
 		    	//In response to a button click:
 		    	fc.showOpenDialog(fenetre);
-		    	pathProjectToBuild = fc.getSelectedFile().toString();
+		    	pathProjectToBuild = fc.getSelectedFile();
 		    }
 		});
 		fenetre.add(container);
@@ -122,8 +106,7 @@ public class App
 		
 		down.add(buttonValider, BorderLayout.EAST);
 		down.add(buttonAnnuler, BorderLayout.WEST);
-		top.add(buttonOrig, BorderLayout.EAST);
-		top.add(buttonDest, BorderLayout.WEST);
+		top.add(buttonDest, BorderLayout.CENTER);
 		container.add(down, BorderLayout.SOUTH);
 		container.add(top, BorderLayout.CENTER);
 		
@@ -163,7 +146,7 @@ public class App
     	Collection<String> config = fs.askConfig(listConfigs);
     	
     	if(config != null) {
-		    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject, pathProjectToBuild, new ArrayList<String>(config));
+		    GenerateProjectSimulator gps = new GenerateProjectSimulator(pathProject.getAbsolutePath(), pathProjectToBuild.getAbsolutePath(), new ArrayList<String>(config));
 			gps.generate();
     	}
     	else {
